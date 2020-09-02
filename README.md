@@ -1,5 +1,5 @@
 # MedicaBase
-A Angular based webapplication for alternative practitioners, in paticular for managing customer data, recipe data, drug data and also creating recipes for customers.
+A Angular based webapplication for alternative practitioners, in paticular for managing customer data, recipe data, drug data and also creating recipes for customers. *Note: All pictures and the entire seminar paper is available in German only!*
 
 ## Design
 MedicaBase uses [Angular Material](https://material.angular.io/) for its graphical interface. The main idea was a easy to use and understandable graphical interface with a collapsible menu on the left side, as well as a permanent header on the top. This should allow all users to easily operate the program. The individual sub-items of the menu are additionally highlighted in color, which should benifit the user in their workflow.
