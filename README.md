@@ -17,4 +17,4 @@ The image shows everything, the user can do. Every step shows the relations to o
 
 
 ## Live preview
-[Preview](https://www.benjaminschober.de/softwaretechnik-2)
+[Preview](https://www.benjaminschober.de/softwaretechnik-2) *Note: The application is also available in German only!
