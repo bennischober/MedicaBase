@@ -1,0 +1,39 @@
+.example-form {
+  min-width: 150px;
+  max-width: auto;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-full-width-1 {
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.example-half-width {
+  width: 25%;
+}
+
+.form-text {
+  position: absolute;
+  left: 55%;
+}
+
+.form-module-align {
+  position: absolute;
+  left: 15px;
+}
+
+.button-form {
+  margin-left: -78px;
+}
+
+.icon-click:hover {
+  cursor: pointer;
+}

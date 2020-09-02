@@ -1,0 +1,114 @@
+<h1 mat-dialog-title class="header-text-centered">Rezept bearbeiten</h1>
+<div mat-dialog-content>
+    <form #officeForm="ngForm" [formGroup]="recipeTemplateForm" (ngSubmit)="onSubmit()">
+        <!-- First Name, Second Name -->
+        <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                        <mat-label>Rezeptname</mat-label>
+                        <input matInput type="text" placeholder="Rezeptnamen eingeben" formControlName="nameControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                        <mat-label>Beschreibung</mat-label>
+                        <input matInput type="text" placeholder="Beschreibungstext eingeben"
+                            formControlName="descriptionControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- ARZNEIMITTEL WÄHLEN -->
+        <div class="mat-elevation-z8">
+            <div class="spaceBetweenFlex">
+                <mat-form-field class="example-half-width searchbar-header" color="accent">
+                    <mat-label>Arzneimittel suchen</mat-label>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Arzneimittel eingeben">
+                </mat-form-field>
+                <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="50"
+                    [pageSizeOptions]="[25, 50, 100, 250]">
+                </mat-paginator>
+            </div>
+
+            <table mat-table matSort [dataSource]="dataSource" class="full-width-table">
+
+                <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="50"
+                    [pageSizeOptions]="[25, 50, 100, 250]">
+                </mat-paginator>
+                <!-- Checkbox Column -->
+                <ng-container matColumnDef="select">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                        </mat-checkbox>
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                        <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+                        </mat-checkbox>
+                    </td>
+                </ng-container>
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Typ</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-button [matTooltip]="getTooltipData(element.type)">
+                            {{element.type}}
+                        </button>
+                    </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name(DE)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="latname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name(LAT)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.latname}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="cnname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name(CN)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.cnname}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="engname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name(ENG)</th>
+                    <td mat-cell *matCellDef="let element"> {{element.engname}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div mat-dialog-actions class="align-dialog">
+    <button mat-raised-button type="button" (click)="onNoClick()">
+        <!-- DIALOG Komponente entfernen? -->
+        Abbrechen
+    </button>
+    <button mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Speichern
+    </button>
+</div>

@@ -1,0 +1,46 @@
+.example-form {
+  min-width: 150px;
+  max-width: auto;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.input-half-width {
+  width: 500px;
+}
+
+.input-fourth-width {
+  width: 20%;
+}
+
+.form-text {
+  position: absolute;
+  left: 30%;
+}
+
+.information-text {
+  padding-left: calc((16.6667% - 0.833333px) * 1 + 25px);
+}
+
+.button-bg-color {
+  background-color: orange;
+}
+
+.padding-icon {
+  margin-top: -5%;
+}
+
+.form-border {
+  border: 0.5px solid grey;
+  border-radius: 12px;
+  padding-top: 2%;
+}
+
+.page-padding {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}

@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// primary: $mat-indigo, 500 . accent: $mat-orange, 500, A200, A100, A400
+
+$my-theme-primary: mat-palette($mat-grey, 100);
+$my-theme-accent: mat-palette($mat-indigo, 500, A200, A100, A400);
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme);
+
+
+$alt-theme-primary: mat-palette($mat-indigo, 700);
+$alt-theme-accent: mat-palette($mat-pink, 400);
+$alt-theme-warn: mat-palette($mat-red);
+
+$alt-theme: mat-dark-theme($alt-theme-primary, $alt-theme-accent, $alt-theme-warn);
+
+.alternative {
+    @include angular-material-theme($alt-theme);
+}
+
+.list-item-active {
+    font-weight: bold !important;
+    color: white !important;
+    background: mat-color($my-theme-accent) !important; // #ff9800
+}

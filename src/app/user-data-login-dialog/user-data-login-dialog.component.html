@@ -1,0 +1,51 @@
+<div mat-dialog-title class="header-text-centered">
+    Login
+</div>
+
+<div mat-dialog-content>
+    <form #officeForm="ngForm" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+        <!-- EMAIL -->
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                        <mat-label>E-Mail</mat-label>
+                        <input matInput type="email" placeholder="E-Mail Adresse eingeben"
+                            formControlName="emailControl" required>
+                            <mat-hint>Keine Sonderzeichen, es muss ein @, sowie eine Domainendung vorkommen.</mat-hint>
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <!-- PASSWORD -->
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                        <mat-label>Passwort</mat-label>
+                        <input matInput [type]="passwordType" placeholder="Passwort eingeben"
+                            formControlName="passwordControl" required>
+                        <mat-icon class="icon-click" matSuffix (click)="togglePassword()">{{matIcon}}</mat-icon>
+                        <mat-hint>Mindestlänge von 8 Zeichen</mat-hint>
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div class="button-align">
+            <button class="button-size" mat-raised-button mat-dialog-close [disabled]="accountForm.invalid" (click)="onClick()">
+                Fortfahren
+            </button>
+        </div>
+        <div class="information-text">
+            Sie haben noch keinen Account? <a routerLink="/user-data"
+                (click)="onClick(); newMessage('Accountdaten')">Account erstellen</a>
+        </div>
+    </form>
+</div>
+
+<!--
+<div mat-dialog-actions class="align-dialog">
+    <button mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Fortfahren
+    </button>
+</div>-->

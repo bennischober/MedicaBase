@@ -1,0 +1,42 @@
+<div mat-dialog-title>
+    <div class="header-center heading-font">
+        <mat-icon class="icon-align">warning</mat-icon>Möchten Sie diesen Kunden wirklich löschen?
+    </div>
+</div>
+<div mat-dialog-cont>
+    <h3 class="header-center">
+        Kundendaten:
+    </h3>
+
+    <mat-grid-list cols="6" rows="3" rowHeight="25px">
+        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="1">ID:</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="1">{{deleteUserMessage}}</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+
+        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="2">Vorname:</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="2">{{setName}}</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+
+        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3">Nachname:</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3">{{setSurname}}</mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div mat-dialog-actions class="flex-end">
+    <button class="button-width" mat-raised-button (click)="onNoClick()">
+        <!-- DIALOG Komponente entfernen? -->
+        Abbrechen
+    </button>
+    <button class="button-width" mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Löschen
+    </button>
+</div>

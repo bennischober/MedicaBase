@@ -1,0 +1,90 @@
+<mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile>
+        <h1>
+            Willkommen in der MedicaBase!
+            <!-- NAMEN ÄNDERN -->
+        </h1>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <h2>
+            Hier werden Ihnen einige häufig genutzte Funktionen aufgelistet.
+        </h2>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="blocksatz info-text">
+    Information: In den Einstellungen finden Sie den Eingabedialog Ihrer Praxisdaten.
+    Die Accountdaten beziehen sich auf die Logindaten, die Sie für das Programm
+    benötigen
+</div>
+
+<!--<p>ACCOUNT DATEN EINGEBEN DIALOG MIT COOKIE! erstellen</p>-->
+
+<mat-grid-list cols="3" rows="3" rowHeight="100px">
+    <mat-grid-tile cols="1" rows="1">
+        <div class="blocksatz blocksatz-font">
+            Rezepterstellung
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="1">
+        <div class="blocksatz blocksatz-font">
+            Kundenverwaltung
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="1">
+        <div class="blocksatz blocksatz-font">
+            Kundenerstellung
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile cols="1" rows="2">
+        <button mat-raised-button class="button-width" (click)="newMessage('Rezept erstellen')"
+            routerLink="/create-receipt" color="accent">
+            <mat-icon class="icon-alignment">post_add</mat-icon>
+            Rezept erstellen
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="2">
+        <button mat-raised-button class="button-width" (click)="newMessage('Kundendaten')" 
+        routerLink="/costumer-data" color="accent">
+            <mat-icon class="icon-alignment">person</mat-icon>
+            Kundendaten
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="2">
+        <button mat-raised-button class="button-width" (click)="newMessage('Kunden erstellen')"
+            routerLink="/create-costumer" color="accent">
+            <mat-icon class="icon-alignment">person_add</mat-icon>
+            Kunden erstellen
+        </button>
+    </mat-grid-tile>
+
+    <mat-grid-tile cols="1" rows="3">
+        <div class="blocksatz">
+            <em>
+                Rezepterstellung mit erstellen Rezeptvorlagen oder aus allen eingegebenen
+                Arzneimittel. Sie können zudem die Kundendaten für das Rezept direkt
+                eingeben oder aus der Liste der eingegebenen Kunden auswählen.
+            </em>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="3">
+        <div class="blocksatz">
+            <em>
+                Die komplette Verwaltung der Kundendaten kann hier vorgenommen werden. Es
+                können neue Kundendaten angelegt, bearbeitet und gelöscht werden, sowie direkt
+                für den ausgewählten Kunden ein Rezept erstellt werden oder der Rezeptverlauf
+                angezeigt werden.
+            </em>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile cols="1" rows="3">
+        <div class="blocksatz">
+            <em>
+                Das erstellen eines neuen Kunden wird in drei Schritte unterteilt. Zunächst
+                werden die 'Persönlichen' Daten des Kunden eingegeben, gefolgt von der Adresse
+                und den Informationen zu der Krankenkasse.
+            </em>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

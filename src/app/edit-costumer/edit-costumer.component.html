@@ -1,0 +1,245 @@
+<div class="page-padding">
+    <form #costumerForm="ngForm" [formGroup]="saveForm1" (ngSubmit)="onSubmit()">
+        <div [hidden]="costumerForm.submitted">
+            <mat-tab-group [selectedIndex]="selectedIndex" color="accent" (selectedTabChange)="tabClick($event)">
+                <mat-tab label="Persönliches">
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <!-- ZEILE 1-->
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Anrede, Titel
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <mat-form-field class="example-form" color="accent">
+                                <mat-label>Anrede</mat-label>
+                                <mat-select formControlName="genderControl" required>
+                                    <mat-option *ngFor="let salution of salutions" [value]="salution.value">
+                                        {{salution.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Titel" formControlName="titleControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <!-- ZEILE 2-->
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Vorname
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Vorname" formControlName="nameControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <!-- ZEILE 3 -->
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Nachname
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Nachname" formControlName="surnameControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <!-- ZEILE 4 -->
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Geburtsdatum
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <mat-form-field class="example-form" color="accent">
+                                <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum"
+                                    formControlName="dateControl" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                    <mat-grid-list cols="5" rowHeight="50px">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <button mat-raised-button type="button" (click)="changeTab()" aria-label="navigate_next"
+                                color="accent">
+                                Weiter
+                                <mat-icon class="padding-icon">
+                                    navigate_next
+                                </mat-icon>
+                            </button>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-tab>
+
+                <!-- 2. Block-->
+
+                <mat-tab label="Adresse">
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Straße, Hausnummer
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Straße" formControlName="streetControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-half-width" color="accent">
+                                    <input matInput placeholder="Hausnummer" formControlName="housenumberControl"
+                                        required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Ort, PLZ
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input type="number" matInput placeholder="PLZ" formControlName="plzControl"
+                                        required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Ort" formControlName="cityControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                    <mat-grid-list cols="5" rowHeight="50px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <button mat-raised-button type="button" (click)="changeTabBack()"
+                                aria-label="navigate_before" color="accent">
+                                <mat-icon class="padding-icon">
+                                    navigate_before
+                                </mat-icon>
+                                Zurück
+                            </button>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="3" rowspan="1">
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <button mat-raised-button type="button" (click)="changeTab()" aria-label="navigate_next"
+                                color="accent">
+                                Weiter
+                                <mat-icon class="padding-icon">
+                                    navigate_next
+                                </mat-icon>
+                            </button>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-tab>
+
+                <mat-tab label="Krankenkasse">
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Krankenkasse
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Krankenkasse" formControlName="insuranceControl"
+                                        required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <mat-grid-list cols="5" rowHeight="100px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="form-text">
+                                Kartennummer
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="2" rowspan="1">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input type="text" matInput placeholder="Kartennummer"
+                                        formControlName="insuranceNumberControl" required>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <mat-grid-list cols="5" rowHeight="50px">
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <button mat-raised-button type="button" (click)="changeTabBack()"
+                                aria-label="navigate_before" color="accent">
+                                <mat-icon class="padding-icon">
+                                    navigate_before
+                                </mat-icon>
+                                Zurück
+                            </button>
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="3" rowspan="1">
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan="1" rowspan="1">
+                            <div class="button-form">
+                                <button mat-raised-button type="submit"
+                                    [disabled]="costumerForm.invalid">Speichern</button>
+                                <!-- (click)="addItem()"-->
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <mat-grid-list cols="3" rowHeight="100px">
+            <mat-grid-tile colspan="1" rowspan="1">
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="submitted-message" *ngIf="costumerForm.submitted">
+                    <p>Der Kunde wurde geändert!</p>
+                    <button mat-raised-button type="button" (click)="costumerForm.resetForm({})"
+                        routerLink="/costumer-data">Zurück zur Übersicht</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>

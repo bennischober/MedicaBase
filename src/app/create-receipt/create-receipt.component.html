@@ -1,0 +1,429 @@
+<div class="page-padding">
+    <!-- KUNDEN SUCHEN-->
+    <h3 class="heading-center">Patientendaten</h3>
+    <div class="button-center">
+        <button mat-raised-button aria-label="add" (click)="openUserDialog();" color="accent">
+            <mat-icon>add</mat-icon> Kunden einfügen
+        </button>
+    </div>
+    <!-- DEBUG ZWECK
+<h4 class="heading-center">
+    Kunde mit der ID <u>{{userMessage}}</u> wurde ausgewählt.
+</h4>-->
+    <mat-divider></mat-divider>
+    <!-- Titel, Gebdat -->
+    <form #costumerForm="ngForm" [formGroup]="saveForm1">
+        <!-- (ngSubmit)="onSubmit()" -->
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Titel" formControlName="titleControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field class="example-form" color="accent">
+                    <mat-label>Anrede</mat-label>
+                    <mat-select formControlName="genderControl">
+                        <mat-option *ngFor="let salution of salutions" [value]="salution.value">
+                            {{salution.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- Vorname, Name -->
+        <mat-grid-list cols="5" rowHeight="100px">
+            <mat-grid-tile>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Vorname" formControlName="nameControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Nachname" formControlName="surnameControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field class="example-form" color="accent">
+                    <input matInput [matDatepicker]="picker" placeholder="Geburtsdatum" formControlName="dateControl">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- Telefon und Fax -->
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Telefonnummer" formControlName="phoneControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Faxnummer" formControlName="faxControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- Straße+Hausnummer ; Hausnummer, PLZ = number -->
+        <mat-grid-list cols="6" rowHeight="100px">
+            <mat-grid-tile>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Straße" formControlName="streetControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Hausnummer" formControlName="housenumberControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input type="number" matInput placeholder="PLZ" formControlName="plzControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Ort" formControlName="cityControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+
+        <!-- Krankenkasse, Kartennummer -->
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Krankenkasse" formControlName="insuranceControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <div class="example-form">
+                    <mat-form-field class="example-full-width" color="accent">
+                        <input matInput placeholder="Kartennummer" formControlName="insurancenumberControl">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+    <br>
+    <mat-divider></mat-divider>
+
+    <!-- INHALTSSTOFFE SUCHEN -->
+    <h3 class="heading-center">Rezeptdaten</h3>
+    <div class="heading-center">
+        <button mat-raised-button aria-label="add" (click)="openRecipeDialog();" color="accent">
+            <mat-icon>add</mat-icon> Rezept erstellen
+        </button>
+    </div>
+
+    <h4 class="heading-center"><u>Typen:</u> 1 = Rohdroge, 2 = Tropfen, 3 = Granulate, 4 = Tabletten</h4>
+
+    <form #recipeForm="ngForm" [formGroup]="recipeSaveForm">
+
+        <mat-divider class="divider-padding"></mat-divider>
+
+
+        <div class="example-container mat-elevation-z8">
+            <mat-table [dataSource]="dataSource">
+                <!-- Type Column -->
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Typ </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <button mat-button [matTooltip]="getTooltipData(row.type)">
+                            {{row.type}}
+                        </button>
+                    </mat-cell>
+                    <mat-footer-cell *matFooterCellDef>
+                        <button mat-stroked-button (click)="getMaxGramm()">
+                            Gesamtgewicht berechnen
+                        </button>
+                    </mat-footer-cell>
+                </ng-container>
+
+                <!-- Progress Column -->
+                <ng-container matColumnDef="nameCN">
+                    <mat-header-cell *matHeaderCellDef> Name(CN) </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.nameCN}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="nameLAT">
+                    <mat-header-cell *matHeaderCellDef> Name(LAT) </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.nameLAT}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <!-- Dose Column -->
+                <ng-container matColumnDef="dose">
+                    <mat-header-cell *matHeaderCellDef> Gramm/Tag </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <mat-form-field class="example-half-width" color="accent">
+                            <input type="number" matInput formControlName="doseControl">
+                            <!-- placeholder="{{row.dose}}" -->
+                        </mat-form-field>
+                        <button mat-button (click)="setGramm(row)">
+                            Speichern
+                        </button>
+                    </mat-cell>
+                    <mat-footer-cell *matFooterCellDef> {{doseMax}} </mat-footer-cell>
+                </ng-container>
+
+                <!-- Days Column -->
+                <ng-container matColumnDef="days">
+                    <mat-header-cell *matHeaderCellDef> Tage </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{days}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
+            </mat-table>
+        </div>
+
+        <mat-grid-list cols="3" rowHeight="100px">
+            <mat-grid-tile cols="1">
+            </mat-grid-tile>
+            <mat-grid-tile cols="1">
+                <h4>Tagesanzahl ändern: </h4>
+                <div class="input-padding">
+                    <mat-form-field color="accent">
+                        <input type="number" matInput formControlName="daysControl">
+                        <!-- (keyup)="setNewDays($event.target.value)" -->
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button class="button-padding" aria-label="send" (click)="setDays()" color="accent">
+                    Speichern
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+
+    <mat-divider class="divider-padding"></mat-divider>
+
+    <h3 class="heading-center">Vorschau</h3>
+
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Vorschau anzeigen
+                </mat-panel-title>
+                <mat-panel-description>
+                    Eine Vorschau mit den zuvor eingegeben Daten wird angezeigt
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- DAS KANN SPÄTER ALLES WIEDER WEG - DIE VORSCHAU -->
+            <!-- ********************************************************************* -->
+            <!-- VORSCHAU -->
+            <mat-card class="example-card">
+                <mat-card-header>
+                </mat-card-header>
+                <mat-card-content>
+
+                    <div flex>
+                        <div class="date-align">
+                            <h4>Datum: {{setNewDate | date}}</h4>
+                        </div>
+                        <h2>{{company}}</h2>
+                    </div>
+                    <p>
+                        {{person}}<br>
+                        {{adress}}<br>
+                        {{city}}<br><br>
+                        <mat-icon class="padding-icon">phone</mat-icon> 017684806815<br>
+                        <mat-icon class="padding-icon">email</mat-icon> bennischober001@gmail.com<br>
+                        <mat-icon class="padding-icon">language</mat-icon> www.benjaminschober.de<br><br>
+                    </p>
+                    <h3>Patientendaten</h3>
+                    <div class="customer-border">
+                        <mat-grid-list cols="6" rows="4" rowHeight="25px">
+                            <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="1">
+                                <div class="form-text">Titel:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="1">
+                                <div class="form-text-color">
+                                    Prof. Dr.
+                                </div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="1">
+                                <div class="form-text">Straße:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="1">
+                                <div class="form-text-color">Weichnerstraße 10a</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2">
+                                <div class="form-text">Name:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2">
+                                <div class="form-text-color">Joachim Schmidt</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2">
+                                <div class="form-text">PLZ/Ort:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="2">
+                                <div class="form-text-color">87651, Kernten</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3">
+                                <div class="form-text">Geburtsdatum:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3">
+                                <div class="form-text-color">11.11.1984</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3">
+                                <div class="form-text">Telefonnummer:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="3">
+                                <div class="form-text-color">016028271722</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4"></mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4">
+                                <div class="form-text">Krankenkasse:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4">
+                                <div class="form-text-color">Techniker Krankenkasse</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4">
+                                <div class="form-text">Kartennummer:</div>
+                            </mat-grid-tile>
+                            <mat-grid-tile cols="1" rows="4">
+                                <div class="form-text-color">93482374782</div>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                    <p class="heading-center"><em class="form-text-color">*Die farbig hinterlegten Daten sind die von
+                            oben eingefügten Kundendaten*</em></p>
+                    <h3>Rezeptdaten - <u>Starker Freund des Atems</u></h3>
+                    <div class="example-container mat-elevation-z8">
+                        <mat-table [dataSource]="dataSource">
+                            <!-- Type Column -->
+                            <ng-container matColumnDef="type">
+                                <mat-header-cell *matHeaderCellDef> Typ </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <button mat-button [matTooltip]="getTooltipData(row.type)">
+                                        {{row.type}}
+                                    </button>
+                                </mat-cell>
+                            </ng-container>
+
+                            <!-- Progress Column -->
+                            <ng-container matColumnDef="nameCN">
+                                <mat-header-cell *matHeaderCellDef> Name(CN) </mat-header-cell>
+                                <mat-cell *matCellDef="let row"> {{row.nameCN}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="nameLAT">
+                                <mat-header-cell *matHeaderCellDef> Name(LAT) </mat-header-cell>
+                                <mat-cell *matCellDef="let row"> {{row.nameLAT}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Dose Column -->
+                            <ng-container matColumnDef="dose">
+                                <mat-header-cell *matHeaderCellDef> Gramm/Tag </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    {{row.dose}}
+                                </mat-cell>
+                            </ng-container>
+
+                            <!-- Days Column -->
+                            <ng-container matColumnDef="days">
+                                <mat-header-cell *matHeaderCellDef> Tage </mat-header-cell>
+                                <mat-cell *matCellDef="let row"> {{days}} </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+                    </div>
+
+                    <mat-grid-list cols="4" rows="3" rowHeight="50px">
+                        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="1">
+                            <mat-radio-button value="1">Lieferung, Rechnung an Patient</mat-radio-button>
+                        </mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="1">
+                            <mat-radio-button value="2">Lieferung, Rechnung an Aufraggeber</mat-radio-button>
+                        </mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="1"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="2">
+                            <mat-checkbox>Messlöffel beilegen</mat-checkbox>
+                        </mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="2"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="3">Gesamtgewicht: {{doseMax}}</mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="3">
+                            <div class="example-form">
+                                <mat-form-field class="example-full-width" color="accent">
+                                    <input matInput placeholder="Sonstige Bemerkungen">
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile cols="1" rows="3"></mat-grid-tile>
+                    </mat-grid-list>
+
+                </mat-card-content>
+                <mat-card-actions class="date-align">
+                    <button mat-icon-button>
+                        <mat-icon>print</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+            <!-- VORSCHAU ENDE -->
+        </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <!--
+    <br><br><br><br><br><br><br><br><br><br>
+    -> "+" Symbol für das Auswählen eines bestehenden Rezepts
+    <br><br><br>
+
+    ->Oder Selbsteingabe für ein Rezept
+    <br><br><br>
+    ->Informationen fürs Rezept:<br>
+    - ->Beschreibungstext, Inhaltsstoffe (Beide Namen), Dosis von-bis, Gramm bis, Gramm pro Tag, Tage
+</div>-->

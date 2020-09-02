@@ -1,0 +1,123 @@
+.full-width-table {
+  width: 100%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: calc(100% - 10px); /* NOCH ÄNDERN! */
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.example-full-width {
+  width: calc(50% - 10px);
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.example-half-width {
+  max-width: 25%;
+}
+
+.form-text {
+  position: absolute;
+  left: 55%;
+}
+
+.form-text2 {
+  position: absolute;
+  left: 40%;
+}
+
+.form-module-align {
+  position: absolute;
+  left: 15px;
+}
+
+.button-form {
+  margin-left: -78px;
+}
+
+.heading-center {
+  text-align: center;
+}
+
+.button-center {
+  text-align: center;
+  padding-bottom: 2%;
+}
+
+.divider-padding {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.input-padding {
+  width: 20%;
+  padding-left: 5%;
+}
+
+.button-padding {
+  margin-left: 5%;
+}
+
+.highlight {
+  background-color: white;
+}
+
+.page-padding {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+/* PREVIEW CARD */
+.example-card {
+  max-width: 100%;
+}
+
+.logo-size {
+  width: 150px;
+  height: 150px;
+  padding-left: 50%;
+}
+
+.date-align {
+  text-align: right;
+}
+
+.padding-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.form-text {
+  left: 35%;
+}
+
+.form-text-color {
+  background-color: #919ee9 !important;
+}
+
+.customer-border {
+  border: 0.5px solid rgb(165, 165, 165);
+  border-radius: 0px;
+} 

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title class="centered-text">Möchten Sie die eingegebenen Daten speichern?</h2>
+<mat-dialog-content class="centered-text">
+    <em>Vorname: Benjamin<br>
+        Nachname: Schober</em>
+</mat-dialog-content>
+<div mat-dialog-actions class="align-dialog">
+    <button mat-raised-button (click)="onNoClick()">
+        Abbrechen
+    </button>
+    <button mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Speichern
+    </button>
+</div>

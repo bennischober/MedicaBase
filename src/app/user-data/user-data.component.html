@@ -1,0 +1,92 @@
+<div class="page-padding">
+    <h1>Accountverwaltung</h1>
+
+    <form #officeForm="ngForm" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+        <div class="form-border">
+            <!-- First Name, Second Name -->
+            <mat-grid-list cols="6" rowHeight="100px">
+                <mat-grid-tile colspan="1"></mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                            <mat-label>Vorname</mat-label>
+                            <input matInput type="text" placeholder="Vorname eingeben" formControlName="nameControl">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                            <mat-label>Nachname</mat-label>
+                            <input matInput type="text" placeholder="Nachname eingeben"
+                                formControlName="surnameControl">
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <!-- EMAIL -->
+            <mat-grid-list cols="6" rowHeight="100px">
+                <mat-grid-tile cols="1"></mat-grid-tile>
+                <mat-grid-tile colspan="4" rowspan="1">
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                            <mat-label>E-Mail</mat-label>
+                            <input matInput type="email" placeholder="E-Mail Adresse eingeben"
+                                formControlName="emailControl">
+                            <mat-hint>Keine Sonderzeichen, es muss ein @, sowie eine Domainendung vorkommen.</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <!-- DIVIDER -->
+            <mat-grid-list cols="6" rowHeight="50px"></mat-grid-list>
+            <!-- PASSWORD -->
+            <mat-grid-list cols="6" rowHeight="100px">
+                <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                            <mat-label>Passwort</mat-label>
+                            <input matInput [type]="passwordType" placeholder="Passwort eingeben"
+                                formControlName="passwordControl" [errorStateMatcher]="matcher" required>
+                            <mat-hint>Mindestlänge von 8 Zeichen</mat-hint>
+                            <mat-error *ngIf="accountForm.hasError('required', 'password')">
+                                Bitte geben Sie ein Passwort ein
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1">
+                    <div class="example-form">
+                        <mat-form-field class="example-full-width" appearance="outline" color="accent">
+                            <mat-label>Passwort wiederholen</mat-label>
+                            <input matInput [type]="passwordType" placeholder="Passwort wiederholen"
+                                formControlName="confirmPasswordControl" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="accountForm.hasError('notSame')">
+                                Die Passwörter müssen übereinstimmen
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <button mat-icon-button aria-label="visibility_off" type="button" class="padding-icon"
+                        (click)="togglePassword()">
+                        <mat-icon>{{matIcon}}</mat-icon>
+                    </button>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <!-- SPEICHERN -->
+            <mat-grid-list cols="5" rowHeight="100px">
+                <mat-grid-tile cols="1"></mat-grid-tile>
+                <mat-grid-tile cols="1"></mat-grid-tile>
+                <mat-grid-tile cols="1"></mat-grid-tile>
+                <mat-grid-tile cols="1"></mat-grid-tile>
+                <mat-grid-tile cols="1">
+                    <button mat-raised-button color="accent"
+                        (click)="openSnackBar('Ihre Benutzerdaten wurden geändert!', 'Ok')">
+                        <!-- man könnte die geänderten Daten anzeigen, z.b. email geändert -->
+                        Speichern
+                    </button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </form>
+</div>

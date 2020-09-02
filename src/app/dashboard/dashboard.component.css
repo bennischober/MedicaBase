@@ -1,0 +1,25 @@
+.centered-text {
+  text-align: center;
+}
+
+.blocksatz {
+  text-align: center;
+}
+
+.button-width {
+    width: 75%;
+  }
+
+.blocksatz-font {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.icon-alignment {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.info-text  {
+  font-style: italic;
+}

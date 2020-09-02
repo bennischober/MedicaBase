@@ -1,0 +1,61 @@
+.example-form {
+  min-width: 150px;
+  max-width: auto;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-half-width {
+  width: calc(50% - 10px);
+}
+
+.align-dialog {
+  justify-content: flex-end;
+}
+
+.header-text-centered {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: auto;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.padding-icon {
+  margin-top: -5%;
+}
+
+.information-text {
+    text-align: center;
+}
+
+.icon-click:hover {
+    cursor: pointer;
+}
+
+.button-align {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.button-size {
+    width: 50%;
+}

@@ -1,0 +1,39 @@
+<div class="header-center" mat-dialog-title>
+    Informationen zum Arzneimittel
+</div>
+
+<div mat-dialog-content>
+    <mat-grid-list cols="3" rows="3" rowHeight="25px">
+        <mat-grid-tile cols="1" rows="1">
+            <div class="content-left-center">
+                Unverträglichkeit
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rows="1">
+            <div class="content-center">
+                Substanz1
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rows="2"></mat-grid-tile>
+
+        <mat-grid-tile cols="1" rows="3">
+            <div class="content-left-center">
+                Allergene
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rows="3">
+            <div class="content-center">
+                Substanz1, Substanz2
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div mat-dialog-actions class="button-center">
+    <div>
+        <button mat-raised-button cdkFocusInitial matDialogClose>
+            Ok
+        </button>
+    </div>
+</div>

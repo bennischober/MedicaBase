@@ -27,3 +27,16 @@
   .button-form {
     margin-left: -78px;
   }
+
+  .button-color {
+    background-color: orange;
+  }
+
+  .padding-icon {
+    margin-top: -5%;
+  }
+
+  .page-padding {
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }

@@ -1,0 +1,21 @@
+.header-center {
+  text-align: center;
+}
+
+.heading-font {
+    font-weight: bold;
+}
+
+.icon-align {
+  display: inline-flex;
+  vertical-align: middle;
+  color: rgb(202, 202, 0);
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.button-width {
+  width: 15%;
+}

@@ -1,0 +1,218 @@
+<h1>Praxisdaten</h1>
+
+<!-- Bild -->
+<mat-grid-list cols="5" rowHeight="100px">
+    <mat-grid-tile colspan="1" rowspan="1">
+        <div class="form-text">
+            Logo einfügen
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+        <mat-form-field class="example-full-width-1">
+            <ngx-mat-file-input placeholder="Bild auswählen"></ngx-mat-file-input>
+            <mat-icon matSuffix class="icon-click">folder</mat-icon>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <!--
+    <mat-grid-tile colspan="1" rowspan="1">
+        <button mat-raised-button aria-label="save_alt" (click)="saveFile()">
+            <mat-icon >save_alt</mat-icon>
+            Speichern
+        </button>
+    </mat-grid-tile>-->
+</mat-grid-list>
+
+<!-- https://stackoverflow.com/questions/15772394/how-to-upload-display-and-save-images-using-node-js-and-express -->
+<!-- Öffnen und speichern ohne Modul -->
+<!--
+<form method="post" enctype="multipart/form-data" action="/upload">
+    <input type="file" name="file">
+    <input type="submit" value="Speichern">
+</form>-->
+
+
+<form #officeForm="ngForm" [formGroup]="saveForm" (ngSubmit)="onSubmit()">
+    <!-- PRAXISNAME -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Praxisname
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Praxisname" formControlName="officeControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- PRAXISNAME -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Titel
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Titel" formControlName="titleControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- VORNAME -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Vorname
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Vorname" formControlName="nameControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- Nachname -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Nachname
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Nachname" formControlName="surnameControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- STRAßE -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Straße, Hausnummer
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Straße" formControlName="streetControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-half-width" color="accent">
+                    <input matInput placeholder="Hausnummer" formControlName="housenumberControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- ORT -->
+
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Ort, PLZ
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input type="number" matInput placeholder="PLZ" formControlName="plzControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Ort" formControlName="cityControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- TELEFONNUMMER -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Telefonnummer
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput placeholder="Telefonnummer" formControlName="phoneControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- EMAIL -->
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                E-Mail Adresse
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput type="email" placeholder="E-Mail Adresse" formControlName="emailControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- WEBSEITE -->
+
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="form-text">
+                Webseite
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" color="accent">
+                    <input matInput type="url" placeholder="Webseite" formControlName="webControl" required>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="5" rowHeight="100px">
+        <mat-grid-tile colspan="3" rowspan="1">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="button-form">
+                <button mat-raised-button type="submit" [disabled]="officeForm.invalid"
+                    (click)="openDialog()">Speichern</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

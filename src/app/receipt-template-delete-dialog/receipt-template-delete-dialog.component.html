@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>
+    <div class="header-center">
+        <mat-icon class="icon-align" color="yellow">warning</mat-icon> Achtung:<br>
+        Das Rezept <em>'Starker Freund des Atems'</em> wird gelöscht!<br><br>
+        Möchten Sie fortfahren?
+    </div>
+</h1>
+
+<div mat-dialog-actions class="flex-end">
+    <button class="button-width" mat-raised-button (click)="onNoClick()">
+        <!-- DIALOG Komponente entfernen? -->
+        Abbrechen
+    </button>
+    <button class="button-width" mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Löschen
+    </button>
+</div>

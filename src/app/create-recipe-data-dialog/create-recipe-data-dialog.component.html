@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Neues Arzneimittel einfügen</h1>
+<div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="100px">
+        <!-- 1st -->
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" color="accent">
+                <mat-label>Typ</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let Group of groups" [value]="Group.value">
+                        {{Group.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" color="accent">
+                <input matInput placeholder="Name(DE)">
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- 2nd -->
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" color="accent">
+                <input matInput placeholder="Name(LAT)">
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" color="accent">
+                <input matInput placeholder="Vorname(CN)">
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <!-- 3nd -->
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile>
+            <mat-form-field class="example-full-width" color="accent">
+                <input matInput placeholder="Name(ENG)">
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <em>*Es müssen nicht alle Sprachen ausgefüllt sein. Sollte eine Sprache nicht
+        ausgefüllt werden, kann danach nicht gesucht werden!*
+    </em>
+</div>
+
+<!-- DIALOG CONTROLS -->
+<div mat-dialog-actions class="align-dialog">
+    <button mat-raised-button (click)="onNoClick()"> <!-- DIALOG Komponente entfernen? -->
+        Abbrechen
+    </button>
+    <button mat-raised-button mat-dialog-close (click)="onClick()" cdkFocusInitial>
+        Speichern
+    </button>
+</div>

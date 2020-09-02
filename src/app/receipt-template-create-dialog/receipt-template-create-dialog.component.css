@@ -1,0 +1,61 @@
+.example-form {
+    min-width: 150px;
+    max-width: auto;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+.full-width-table {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-half-width {
+  width: calc(50% - 10px);
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-row:nth-child(even) {
+  background-color: white;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #ededed;
+}
+
+.searchbar-header {
+  margin-left: 24px;
+}
+
+.spaceBetweenFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.element-row:hover {
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+}
+
+.align-dialog {
+  justify-content: flex-end;
+}
+
+.header-text-centered {
+  text-align: center;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}

@@ -1,18 +1,92 @@
-<mat-toolbar class="example-header">
-  <span>Programm Name </span>
-</mat-toolbar>
+<div [class.alternative]="otherTheme">
+  <mat-toolbar class="example-header header-shadow" color="primary">
+    <span>
+      <button mat-flat-button color="accent" aria-label="menu" class="header-button"
+        (click)="sidenav.toggle(); changeMenuIcon(); changeExpanded()">
+        <mat-icon>{{menuIcon}}</mat-icon>
+      </button>
 
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+      <a class="header-font">
+        {{message}}
+      </a>
+
+      <button mat-raised-button class="header-button-color" aria-label="brightness_2"
+        (click)="changeTheme(); changeName(); changeIcon()" color="accent">
+        <mat-icon>{{timeIcon}}</mat-icon> {{name}}
+      </button>
+    </span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container navbar-height">
+    <mat-sidenav #sidenav opened mode="side" class="navbar-color navbar-height">
       <mat-nav-list>
-          <a mat-list-item routerLink="/receipt-data" [routerLinkActive]="['active']" [class.mat-elevation-z8]="isActive" [class.mat-elevation-z0]="!isActive" (click)="onClickBt()">Rezeptdaten</a>
-          <a mat-list-item routerLink="/costumer-data" [routerLinkActive]="['active']" [class.mat-elevation-z8]="isActive1" [class.mat-elevation-z0]="!isActive1" (click)="onClickBt1()">Kundendaten</a>
-          <a mat-list-item routerLink="/create-costumer" [routerLinkActive]="['active']" [class.mat-elevation-z8]="isActive2" [class.mat-elevation-z0]="!isActive2" (click)="onClickBt2()">Kunden erstellen</a>
+        <mat-list-item routerLink="/dashboard" routerLinkActive="list-item-active" (click)="newMessage('Übersicht')">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <span>Übersicht</span>
+        </mat-list-item>
+        <mat-divider class="divder-color"></mat-divider>
+        <mat-list-item routerLink="/create-receipt" routerLinkActive="list-item-active"
+          (click)="newMessage('Rezept erstellen')">
+          <mat-icon mat-list-icon>post_add</mat-icon>
+          <span>Rezept erstellen</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/create-costumer" routerLinkActive="list-item-active"
+          (click)="newMessage('Kunden erstellen')">
+          <mat-icon mat-list-icon>person_add</mat-icon>
+          <span>Kunden erstellen</span>
+        </mat-list-item>
+        <mat-divider class="divder-color"></mat-divider>
+        <mat-list-item routerLink="/receipt-template" routerLinkActive="list-item-active"
+          (click)="newMessage('Rezeptvorlage erstellen')">
+          <mat-icon mat-list-icon>assignment</mat-icon>
+          <span>Rezeptvorlage erstellen</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/costumer-data" routerLinkActive="list-item-active"
+          (click)="newMessage('Kundendaten')">
+          <mat-icon mat-list-icon>person</mat-icon>
+          <span>Kundendaten</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/receipt-data" routerLinkActive="list-item-active"
+          (click)="newMessage('Arzneimittel')">
+          <mat-icon mat-list-icon>colorize</mat-icon>
+          <span>Arzneimittel</span>
+        </mat-list-item>
+        <div class="navbar-alignment">
+          <mat-divider class="divder-color"></mat-divider>
+          <mat-list-item routerLink="/office-data" routerLinkActive="list-item-active"
+            (click)="newMessage('Einstellungen')">
+            <mat-icon mat-list-icon>settings</mat-icon>
+            <span>Einstellungen</span>
+          </mat-list-item>
+          <mat-list-item routerLink="/user-data" routerLinkActive="list-item-active"
+            (click)="newMessage('Accountdaten')">
+            <mat-icon mat-list-icon>account_circle</mat-icon>
+            <span>Accountdaten</span>
+          </mat-list-item>
+        </div>
       </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
+    </mat-sidenav>
+    <!-- PAGE-CONTENT -->
+    <mat-sidenav-content class="body-margin">
       <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-<mat-toolbar class="example-footer">Footer</mat-toolbar>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <!--
+  <mat-toolbar class="example-footer" color="primary">
+    <div flex>
+      <button mat-raised-button aria-label="brightness_2" (click)="changeTheme(); changeName()" color="accent"
+        class="button-margin">
+        <mat-icon>brightness_2</mat-icon> {{name}}
+      </button>
+      <mat-placeholder></mat-placeholder>
+      <button mat-raised-button aria-label="store" color="accent" routerLink="/office-data"
+        (click)="newElevation('Praxisdaten')" class="button-margin">
+        <mat-icon>store</mat-icon> Praxisdaten
+      </button>
+      <button mat-raised-button aria-label="account_circle" color="accent" routerLink="/user-data"
+        class="button-margin">
+        <mat-icon>account_circle</mat-icon> Accountdaten
+      </button>
+    </div>
+  </mat-toolbar> -->
+</div>

@@ -12,15 +12,20 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      webSecurity: false
     }
   })
+
+  win.maximize()
+
+  win.setMenuBarVisibility(false)
 
   // und lade die index.html der App.
   win.loadFile('dist/index.html')
 
   // Öffnen der DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   // Ausgegeben, wenn das Fenster geschlossen wird.
   win.on('closed', () => {
