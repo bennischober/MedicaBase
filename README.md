@@ -1,27 +1,13 @@
 # MedicaBase
+A Angular based webapplication for alternative practitioners, in paticular for managing customer data, recipe data, drug data and also creating recipes for customers.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+## Design
+MedicaBase uses [Angular Material](https://material.angular.io/) for its graphical interface. The main idea was a easy to use and understandable graphical interface with a collapsible menu on the left side, as well as a permanent header on the top. This should allow all users to easily operate the program. The individual sub-items of the menu are additionally highlighted in color, which should benifit the user in their workflow.
+![Basic Overlay](https://benjaminschober.de/img/swt2/11.2.jpg)
 
-## Development server
+## Layout and Workflow
+The image shows everything, the user can do. Every step shows the relations to other steps and its own functions. The menu and header are linked to every single function its linked with. For example you always have to login at the beginning or you can create a new recipe template while creating a new recipe for a customer.
+![Contentdiagram of a workflow](https://benjaminschober.de/img/swt2/Contentdiagramm_Neu.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Link to the entire seminar paper
+[MedicaBase Seminar Paper](https://benjaminschober.de/ressources/usability_study.pdf)
